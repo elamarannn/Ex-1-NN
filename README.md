@@ -1,7 +1,6 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
-<H3>EX. NO.1</H3>
-<H3>DATE</H3>
+<H3>ENTER YOUR NAME</H3>Elamaran S E
+<H3>ENTER YOUR REGISTER NO.</H3>212222230036
+<H3>EX. NO.1
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
 
 ## AIM:
@@ -37,11 +36,63 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+```
+from google.colab import files
+import pandas as pd
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
 
+df = pd.read_csv("/content/Churn_Modelling.csv")
+print(df)
+df.head()
+```
+```
+X=df.iloc[:,:-1].values
+print(X)
+
+y=df.iloc[:,-1].values
+print(y)
+```
+```
+print(df.isnull().sum())
+
+df.duplicated()
+
+print(df['HasCrCard'].describe())
+```
+```
+data = df.drop(['Surname', 'Geography','Gender'], axis=1)
+data.head()
+```
+```
+scaler=MinMaxScaler()
+df1=pd.DataFrame(scaler.fit_transform(data))
+print(df1)
+```
+```
+X_train ,X_test ,y_train,y_test=train_test_split(X,y,test_size=0.2)
+
+print("X_train\n")
+print(X_train)
+print("\nLenght of X_train ",len(X_train))
+
+print("\nX_test\n")
+print(X_test)
+print("\nLenght of X_test ",len(X_test))
+```
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+![308941776-80aeba64-938f-4126-8e59-0372ca22733e](https://github.com/elamarannn/Ex-1-NN/assets/113497531/24f1513f-2129-4d40-bf29-cbb382570876)
+![308941792-e52b8ada-b2f9-4d34-831e-e765b60ab470](https://github.com/elamarannn/Ex-1-NN/assets/113497531/8e4c3245-fdfe-473b-b970-a8a2dcc944bb)
+![308941800-54378abb-a899-4f16-ab3b-082706e6dead](https://github.com/elamarannn/Ex-1-NN/assets/113497531/8d49ec2f-ff5c-428f-bdac-75b6ea544327)
+![308941806-8e2c80b5-a849-4dcf-bd33-c8af8a348302](https://github.com/elamarannn/Ex-1-NN/assets/113497531/a4d05e21-9c73-4d6c-abfb-6f90396b11b6)
+![308941812-52bf22bc-ddf7-4f42-adee-1c7834dacc48](https://github.com/elamarannn/Ex-1-NN/assets/113497531/ebf8c2f6-9d19-45cc-90b9-a072a530b230)
+![308941817-15277847-3a88-4c93-8542-8964d2668904](https://github.com/elamarannn/Ex-1-NN/assets/113497531/cc38a519-198c-4179-b91a-974b1bdb5198)
+![308941824-b8dba549-e6af-46bd-b731-6ea11c9fb912](https://github.com/elamarannn/Ex-1-NN/assets/113497531/f3dfe2d2-55bf-45a7-bf56-4654e852dcee)
+![308941830-8b3c6318-1a99-4d9c-ac29-784750bc3c96](https://github.com/elamarannn/Ex-1-NN/assets/113497531/25b6cb0b-d51d-4acf-b05b-141ae77e618e)
+![308941839-d9d04b8d-f22f-44df-806a-3db0e327e809](https://github.com/elamarannn/Ex-1-NN/assets/113497531/52d522b4-541c-459c-9418-03016c466965)
 
 
 ## RESULT:
